@@ -1,0 +1,2 @@
+# LojinhaMobileAutomacao
+Lojinha Mobile Automacao
