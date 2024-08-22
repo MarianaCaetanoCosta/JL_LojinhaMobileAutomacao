@@ -7,8 +7,12 @@ Automação de teste com JUnit e Appium
  
 * [Android Studio](https://developer.android.com/studio?hl=pt-br#downloads)
   * Baixar o Android Studio e Ferramenta de Linha de comando
+ 
+* [Android SDK](https://androidsdkmanager.azurewebsites.net/build_tools.html)
 
+* [Appium](https://github.com/appium/appium-desktop/releases)
 
+* [Appium Inspector](https://github.com/appium/appium-inspector)
 
 ## Dependências
 
