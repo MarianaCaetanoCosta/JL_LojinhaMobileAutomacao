@@ -4,11 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class FormularioAdicaoProdutoTela {
-    private WebDriver app;
+public class FormularioAdicaoProdutoTela extends BaseTela{
 
     public FormularioAdicaoProdutoTela(WebDriver app){
-        this.app = app;
+        super(app);
     }
 
     public FormularioAdicaoProdutoTela preencherNomeProduto(String produtoNome){
@@ -40,7 +39,6 @@ public class FormularioAdicaoProdutoTela {
     }
 
     public String obterMensagemErro(){
-        //Válidar que a mensagem de valor inválido foi apresentada
-        return app.findElement(By.xpath("//android.widget.Toast[@text=\"O valor do produto deve estar entre R$ 0,01 e R$ 7.000,00\"]")).getText();
+        return capturarToast();
     }
 }

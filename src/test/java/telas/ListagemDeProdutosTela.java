@@ -3,11 +3,10 @@ package telas;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ListagemDeProdutosTela {
-    private WebDriver app;
+public class ListagemDeProdutosTela extends BaseTela{
 
     public ListagemDeProdutosTela(WebDriver app){
-        this.app = app;
+        super(app);
     }
 
     public FormularioAdicaoProdutoTela abrirTelaAdicaoProduto(){

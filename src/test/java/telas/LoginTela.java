@@ -4,15 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.bidi.log.Log;
 
-public class LoginTela {
-    //Preencher a informação de login
+public class LoginTela extends BaseTela{
 
-    //1° Crie um atributo
-    private WebDriver app;
-
-    //2° Crie um contrutor que recebe e retorna o atributo
     public LoginTela(WebDriver app){
-        this.app = app;
+        super(app);
     }
     //3° Definir os métodos de interação com os elementos
     public LoginTela preencherUsuario(String usuario){
