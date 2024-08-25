@@ -42,4 +42,18 @@ public class FormularioEditarProdutoTela extends BaseTela{
     public String obterMensagemSucesso(){
         return capturarToast();
     }
+
+    public FormularioEditarProdutoTela abrirTelaAdicionarComponente(){
+        app.findElement(By.id("com.lojinha:id/addComponentButton")).click();
+        return this;
+    }
+
+    public FormularioAdicionarComponenteTela preencherNomeComponente(String nomeComponente){
+        app.findElement(By.id("com.lojinha:id/componentName")).click();
+        app.findElement(By.id("com.lojinha:id/componentName")).findElement(By.id("com.lojinha:id/editText")).sendKeys(nomeComponente);
+        return new FormularioAdicionarComponenteTela(app); //Continua na mesma tela ou vai para a proxima? Muda de tela.
+    }
+
+
+
 }

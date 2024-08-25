@@ -27,7 +27,7 @@ public class ProdutoTest {
         capacidades.setCapability("appium:app","C:\\Android\\lojinha-nativa.apk");
 
         this.app = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capacidades);
-        this.app.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); //Aguarda 5 segundos para execução de cada comando, passado esse 5 segundos é considerado erro.
+        this.app.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //Aguarda 5 segundos para execução de cada comando, passado esse 5 segundos é considerado erro.
     }
 
     @DisplayName("Validação do Valor de Produto não permitido")
@@ -64,6 +64,23 @@ public class ProdutoTest {
                 .obterMensagemSucesso();
 
         Assertions.assertEquals("Produto alterado com sucesso", mensagemApresentada);
+    }
+
+    @DisplayName("Adicionar Componente")
+    @Test
+    public void testAdicionarComponente(){
+        String mensagemApresentada = new LoginTela(app)
+                .preencherUsuario("admin")
+                .preencherSenha("admin")
+                .submeterLogin()
+                .abrirTelaEditarProduto()
+                .abrirTelaAdicionarComponente()
+                .preencherNomeComponente("Carregador")
+                .preencherQuantidadeComponente("1")
+                .submissaoSucesso()
+                .obterMensagemSucesso();
+
+        Assertions.assertEquals("Componente de produto adicionado com sucesso", mensagemApresentada);
     }
 
     @AfterEach
