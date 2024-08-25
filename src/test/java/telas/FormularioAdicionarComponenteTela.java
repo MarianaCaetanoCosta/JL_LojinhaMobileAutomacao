@@ -15,7 +15,7 @@ public class FormularioAdicionarComponenteTela extends BaseTela{
         return new FormularioAdicionarComponenteTela(app); //Continua na mesma tela ou vai para a proxima? Muda de tela.
     }
 
-    public FormularioAdicionarComponenteTela submissaoSucesso() {
+    public FormularioAdicionarComponenteTela submissaoSucessoAdicionarProduto() {
         app.findElement(By.id("com.lojinha:id/saveComponentButton")).click();
         return new FormularioAdicionarComponenteTela(app); //Continua na mesma tela ou vai para a proxima? Muda de tela.
     }

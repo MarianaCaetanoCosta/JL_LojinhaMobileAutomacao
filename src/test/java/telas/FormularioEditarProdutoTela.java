@@ -34,7 +34,7 @@ public class FormularioEditarProdutoTela extends BaseTela{
         return this;
     }
 
-    public FormularioEditarProdutoTela submissaoSucesso() {
+    public FormularioEditarProdutoTela submissaoSucessoEditarProduto() {
         app.findElement(By.id("com.lojinha:id/saveButton")).click();
         return this;
     }
@@ -59,4 +59,13 @@ public class FormularioEditarProdutoTela extends BaseTela{
         return new FormularioAdicaoProdutoTela(app);
     }
 
+    public FormularioEditarProdutoTela excluirProduto() {
+        app.findElement(By.xpath("//android.widget.ImageView")).click(); //Clica nos 3 pontos - agora falta selecionar apagar produto
+        app.findElement(By.xpath("//android.widget.TextView[@resource-id=\"com.lojinha:id/title\" and @text=\"Apagar produto\"]")).click();
+        return new FormularioEditarProdutoTela(app);
+    }
+
+    public String obterMensagemExclusaoProduto(){
+        return capturarToast();
+    }
 }

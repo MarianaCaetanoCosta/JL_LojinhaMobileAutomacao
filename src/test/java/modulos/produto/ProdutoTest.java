@@ -60,7 +60,7 @@ public class ProdutoTest {
                 .alterarNomeProduto("Motorola X")
                 .alterarValorProduto("310000")
                 .alterarCorProduto("Cinza, Azul")
-                .submissaoSucesso()
+                .submissaoSucessoEditarProduto()
                 .obterMensagemSucesso();
 
         Assertions.assertEquals("Produto alterado com sucesso", mensagemApresentada);
@@ -77,12 +77,12 @@ public class ProdutoTest {
                 .abrirTelaAdicionarComponente()
                 .preencherNomeComponente("Carregador")
                 .preencherQuantidadeComponente("1")
-                .submissaoSucesso()
+                .submissaoSucessoAdicionarProduto()
                 .obterMensagemSucessoAdicionarComponente();
 
         Assertions.assertEquals("Componente de produto adicionado com sucesso", mensagemApresentada);
     }
-    
+
     @DisplayName("Excluir Componente")
     @Test
     public void testExcluirComponente(){
@@ -93,6 +93,21 @@ public class ProdutoTest {
                 .abrirTelaEditarProduto()
                 .excluirComponente()
                 .obterMensagemSucessoExcluirComponente();
+
+        Assertions.assertEquals("Apagado!", mensagemApresentada);
+    }
+
+    /*#Desafio 4: 1.Excluir Produto 2.Validar Mensagem*/
+    @DisplayName("Excluir Produto")
+    @Test
+    public void testExcluirProduto(){
+        String mensagemApresentada = new LoginTela(app)
+                .preencherUsuario("admin")
+                .preencherSenha("admin")
+                .submeterLogin()
+                .abrirTelaEditarProduto()
+                .excluirProduto()
+                .obterMensagemExclusaoProduto();
 
         Assertions.assertEquals("Apagado!", mensagemApresentada);
     }
