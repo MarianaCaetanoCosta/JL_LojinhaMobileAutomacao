@@ -2,7 +2,6 @@ package modulos.produto;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import telas.LoginTela;
@@ -28,7 +27,7 @@ public class ProdutoTest {
         capacidades.setCapability("appium:app","C:\\Android\\lojinha-nativa.apk");
 
         this.app = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capacidades);
-        this.app.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //Aguarda 5 segundos para execução de cada comando, passado esse 5 segundos é considerado erro.
+        this.app.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); //Aguarda 5 segundos para execução de cada comando, passado esse 5 segundos é considerado erro.
     }
 
     @DisplayName("Validação do Valor de Produto não permitido")
@@ -48,6 +47,23 @@ public class ProdutoTest {
 
         //Válidar que a mensagem de valor inválido foi apresentada
         Assertions.assertEquals("O valor do produto deve estar entre R$ 0,01 e R$ 7.000,00", mensagemApresentada);
+    }
+
+    @DisplayName("Editar Produto")
+    @Test
+    public void testEditarProduto(){
+        String mensagemApresentada = new LoginTela(app)
+                .preencherUsuario("admin")
+                .preencherSenha("admin")
+                .submeterLogin()
+                .abrirTelaEditarProduto()
+                .alterarNomeProduto("Motorola X")
+                .alterarValorProduto("310000")
+                .alterarCorProduto("Cinza, Azul")
+                .submissaoSucesso()
+                .obterMensagemSucesso();
+
+        Assertions.assertEquals("Produto alterado com sucesso", mensagemApresentada);
     }
 
     @AfterEach
