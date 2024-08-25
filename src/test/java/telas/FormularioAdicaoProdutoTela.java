@@ -1,6 +1,5 @@
 package telas;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -38,7 +37,16 @@ public class FormularioAdicaoProdutoTela extends BaseTela{
         return this;
     }
 
-    public String obterMensagemErro(){
+    public String obterMensagemErroProdutoComValorNaoPermitido(){
+        return capturarToast();
+    }
+
+    public FormularioAdicaoProdutoTela submissaoSucesso() {
+        app.findElement(By.id("com.lojinha:id/saveComponentButton")).click();
+        return this;
+    }
+
+    public String obterMensagemSucessoExcluirComponente() {
         return capturarToast();
     }
 }

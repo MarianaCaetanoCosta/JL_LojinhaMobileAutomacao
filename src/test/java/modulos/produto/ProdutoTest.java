@@ -43,7 +43,7 @@ public class ProdutoTest {
                 .preencherValorProduto("700001")
                 .preencherCoresProduto("Azul, Verde")
                 .submissaoComErro()
-                .obterMensagemErro();
+                .obterMensagemErroProdutoComValorNaoPermitido();
 
         //Válidar que a mensagem de valor inválido foi apresentada
         Assertions.assertEquals("O valor do produto deve estar entre R$ 0,01 e R$ 7.000,00", mensagemApresentada);
@@ -78,9 +78,23 @@ public class ProdutoTest {
                 .preencherNomeComponente("Carregador")
                 .preencherQuantidadeComponente("1")
                 .submissaoSucesso()
-                .obterMensagemSucesso();
+                .obterMensagemSucessoAdicionarComponente();
 
         Assertions.assertEquals("Componente de produto adicionado com sucesso", mensagemApresentada);
+    }
+    
+    @DisplayName("Excluir Componente")
+    @Test
+    public void testExcluirComponente(){
+        String mensagemApresentada = new LoginTela(app)
+                .preencherUsuario("admin")
+                .preencherSenha("admin")
+                .submeterLogin()
+                .abrirTelaEditarProduto()
+                .excluirComponente()
+                .obterMensagemSucessoExcluirComponente();
+
+        Assertions.assertEquals("Apagado!", mensagemApresentada);
     }
 
     @AfterEach

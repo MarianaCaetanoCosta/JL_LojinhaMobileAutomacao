@@ -54,6 +54,9 @@ public class FormularioEditarProdutoTela extends BaseTela{
         return new FormularioAdicionarComponenteTela(app); //Continua na mesma tela ou vai para a proxima? Muda de tela.
     }
 
-
+    public FormularioAdicaoProdutoTela excluirComponente(){
+        app.findElement(By.id("com.lojinha:id/componentDeleteButton")).click();
+        return new FormularioAdicaoProdutoTela(app);
+    }
 
 }
