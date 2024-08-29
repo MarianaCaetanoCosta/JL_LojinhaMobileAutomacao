@@ -32,3 +32,12 @@ Testes para validar as partições de equivalência relacionadas ao valor do pro
     
 * Desing Pattern:
    - **Page Object Model** : O Page Object Model é usado em testes de automação, onde cada página é representada como uma classe. A classe contém os elementos e ações que podem ser realizados na página. Isso torna o código de teste mais sustentável, pois as alterações na página podem ser feitas em um só lugar, em vez de em vários testes.
+
+## Apresentação
+
+
+https://github.com/user-attachments/assets/1966595c-b130-498c-8bde-925af6e04d6f
+
+
+
+
