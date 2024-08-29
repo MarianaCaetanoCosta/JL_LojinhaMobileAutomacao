@@ -65,7 +65,7 @@ public class FormularioEditarProdutoTela extends BaseTela{
         return new FormularioEditarProdutoTela(app);
     }
 
-    public String obterMensagemExclusaoProduto(){
+    public String obterMensagemSucessoExcluirProduto() {
         return capturarToast();
     }
 }
